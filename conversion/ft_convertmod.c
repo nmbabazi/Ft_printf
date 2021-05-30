@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convertchar.c                                   :+:      :+:    :+:   */
+/*   ft_convertmod.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmbabazi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/31 17:38:32 by nmbabazi          #+#    #+#             */
-/*   Updated: 2020/01/31 17:48:40 by nmbabazi         ###   ########.fr       */
+/*   Created: 2020/01/31 17:39:01 by nmbabazi          #+#    #+#             */
+/*   Updated: 2020/01/31 17:49:05 by nmbabazi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-int	ft_convertchar(int *tab, va_list ap)
+int	ft_convertmod(int *tab)
 {
-	int arg;
 	int count;
 	int nb;
 
 	count = 0;
-	nb = 0;
-	arg = va_arg(ap, int);
-	if (tab[0] == 0 && tab[2] != 1)
+	if (tab[0] == 0)
 	{
 		nb = tab[1] - 1;
 		count += ft_writespace(nb, ' ');
-		count += ft_putchar_cnt(arg);
+		count += ft_putchar_cnt('%');
 	}
-	if (tab[0] == 2 && tab[2] != 1)
+	if (tab[0] == 1)
 	{
 		nb = tab[1] - 1;
-		count += ft_putchar_cnt(arg);
+		count += ft_writespace(nb, '0');
+		count += ft_putchar_cnt('%');
+	}
+	if (tab[0] == 2)
+	{
+		nb = tab[1] - 1;
+		count += ft_putchar_cnt('%');
 		count += ft_writespace(nb, ' ');
 	}
 	free(tab);

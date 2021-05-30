@@ -19,17 +19,17 @@ RM	= rm -f
 NAME	=	libftprintf.a
 
 SRCS = 	ft_printf.c\
-		ft_convertint.c\
-		ft_convertstr.c\
-		ft_convertchar.c\
-		ft_convertu.c\
-		ft_convertx.c\
-		ft_convertxup.c\
-		ft_convertp.c\
-		ft_convertmod.c\
-		ft_lib1.c\
-		ft_lib2.c\
-		ft_lib3.c\
+		conversion/ft_convertint.c\
+		conversion/ft_convertstr.c\
+		conversion/ft_convertchar.c\
+		conversion/ft_convertu.c\
+		conversion/ft_convertx.c\
+		conversion/ft_convertxup.c\
+		conversion/ft_convertp.c\
+		conversion/ft_convertmod.c\
+		lib/ft_lib1.c\
+		lib/ft_lib2.c\
+		lib/ft_lib3.c\
 
 OBJS	= ${SRCS:.c=.o}
 
